@@ -1,0 +1,750 @@
+/**
+ ***********************************************************************************************
+ *                             COMPSOUL BLOG MODULE - LEGAL NOTICE                             *
+ ***********************************************************************************************
+ * The Compsoul Blog module ("the Module") is the intellectual property of Daniel Dziedzic,
+ * trading under the name "Compsoul". By downloading, installing, or using the Module, you
+ * ("the User") agree to be bound by the following terms and conditions:
+ *
+ * 1. Modification and Customization:
+ * The User is permitted to modify and customize the Module for their own use, provided that
+ * any substantial modifications or alterations are made in consultation with the original
+ * creator, Daniel Dziedzic. The User must seek approval for any significant changes to the Module.
+ *
+ * 2. Non-Profit Use:
+ * The Module can be used by non-profit organizations without any restrictions, subject to
+ * compliance with all other terms and conditions specified herein.
+ *
+ * 3. Prohibited Resale:
+ * The User is strictly prohibited from selling, leasing, licensing, or distributing the Module
+ * in any form, either as it is or in modified versions, for commercial or monetary gain. The Module
+ * is intended for non-commercial use only.
+ *
+ * 4. Consultation with the Creator:
+ * Any attempts to modify, alter, or distribute the Module, in part or in whole, must be communicated
+ * and approved by the original creator, Daniel Dziedzic. For any inquiries or consultation, please
+ * contact the creator via email at daniel@compsoul.pl.
+ *
+ * 5. Creator Information:
+ * The Module has been created by Daniel Dziedzic, trading under the name "Compsoul". For more
+ * information about the creator and their work, please visit the official website at compsoul.pl
+ * (for Polish) or compsoul.dev (for English).
+ *
+ * 6. Display of Creator Information:
+ * The User agrees to include a visible and accessible link to the creator's website, compsoul.pl or
+ * compsoul.dev, at the bottom of the list of posts on the frontend of their website using the Module.
+ * The link should be displayed prominently and must be maintained at all times.
+ *
+ * Contact:
+ * For technical support or to obtain permission for Module modifications, please contact the
+ * creator:
+ *
+ * @author Daniel Dziedzic <daniel@compsoul.pl>
+ * @copyright Compsoul
+ * @license Free License with Attribution
+ * @link https://compsoul.pl
+ * @link https://compsoul.dev
+ *
+ * The User acknowledges and agrees that any use of the Module is subject to the terms and conditions
+ * outlined in this legal notice. Failure to comply with these terms may result in legal action.
+ ***********************************************************************************************
+ *                                     END OF LEGAL NOTICE                                     *
+ ***********************************************************************************************
+ */
+
+.module-blog {
+  ---rem: var(--rem, 100px);
+  ---color-white: var(--color-white, 255, 255, 255);
+  ---color-dark: var(--color-dark, 43, 43, 43);
+  ---color-main: var(--color-main, 231, 161, 79);
+  ---color-sub: var(--color-sub, 31, 34, 64);
+  ---color-background: var(--color-background, 245, 247, 249);
+  ---grid: var(--grid, 64px);
+  ---grid-: var(--grid-, calc( var(---grid) * -1 )) ;
+  container: module-blog / inline-size;
+}
+
+.module-blog .blog-heading {
+  align-items: end;
+  color: rgb( var(--color-dark) );
+  display: flex;
+  font-size: calc(0.42 * var(---rem));
+  font-weight: 300;
+  justify-content: center;
+  line-height: 1.5em;
+  margin: 0 0 var(--grid);
+  position: relative;
+  text-align: center;
+  z-index: 0;
+}
+
+.module-blog .blog-heading:before, .module-blog .blog-heading:after {
+  background: rgb( var(--color-sub) );
+  border-radius: 0.12em;
+  content: "";
+  display: block;
+  height: 0.12em;
+  margin: 0 0.18em 0.4em 0.6em;
+  order: 1;
+  position: static;
+  width: 1.32em;
+  z-index: -1;
+}
+
+.module-blog .blog-heading:after {
+  margin: 0 0 0.4em;
+  width: calc(0.10 * var(---rem));
+}
+
+.module-blog .listing-blog {
+  display: grid;
+  gap: calc( var(---grid) / 2 );
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.module-blog .listing-blog .listing-item {
+  display: flex;
+  flex-flow: column;
+  padding: calc( var(---grid) / 2 );
+}
+
+.module-blog .listing-blog .listing-top {
+  margin: 0 0 1em;
+  order: -2;
+  overflow: hidden;
+  position: relative;
+}
+
+.module-blog .listing-blog .listing-top-img {
+  margin: calc( var(---grid-) / 2 ) calc( var(---grid-) / 2 ) calc( var(---grid) / 2 );
+}
+
+.module-blog .listing-blog .listing-image {
+  border-radius: calc(0.12 * var(---rem));
+  height: calc(3.2 * var(---rem));
+  margin: 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+.module-blog .listing-blog .listing-img {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.module-blog .listing-blog .listing-categories .listing-categories-list {
+  display: flex;
+  flex-flow: row wrap;
+  gap: calc(0.08 * var(---rem));
+}
+
+.module-blog .listing-blog .listing-top-img .listing-categories .listing-categories-list {
+  padding: calc(0.16 * var(---rem));
+}
+
+.module-blog .listing-blog .listing-categories .listing-categorie-link {
+  background: rgb( var(---color-background) );
+  border-radius: calc(0.06 * var(---rem));
+  color: rgb( var(--color-text) );
+  display: block;
+  font-weight: 700;
+  padding: calc(0.08 * var(---rem));
+  text-decoration: none;
+  transition: background 0.4s, color 0.4s;
+}
+
+.module-blog .listing-blog .listing-categories .listing-categorie-link:hover,
+.module-blog .listing-blog .listing-categories .listing-categorie-link:focus {
+  background: rgb( var(---color-main) );
+  color: rgb( var(---color-white) );
+}
+
+.module-blog .listing-blog .listing-image + .listing-categories {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.module-blog .listing-blog .listing-headline {
+  font-weight: 700;
+  margin: 0 0 1em;
+}
+
+.module-blog .listing-blog .listing-headline .listing-link {
+  text-decoration: none;
+}
+
+.module-blog .listing-blog .listing-time {
+  align-self: start;
+  background: rgb( var(---color-main) );
+  border-radius: calc(0.06 * var(---rem));
+  color: rgb( var(---color-white) );
+  font-weight: 700;
+  margin: 0 0 1em;
+  order: -1;
+  overflow: hidden;
+  padding: calc(0.08 * var(---rem));
+}
+
+.module-blog .listing-blog .listing-top-img + .listing-time {
+  margin: calc( var(---grid-) / 2 ) calc( var(---grid-) / 2 ) 0;
+  transform: translate(0, -50%);
+}
+
+.module-blog .listing-blog .listing-description {
+  margin: 0 0 1em;
+}
+
+.module-blog .listing-blog .listing-more {
+  align-self: start;
+  font-weight: 700;
+  margin: auto 0 0 0;
+  text-decoration: none;
+}
+
+.module-blog .listing-blog .listing-more:before {
+  align-self: end;
+  background: rgb( var(---color-main) );
+  border-radius: calc(0.06 * var(---rem));
+  content: "";
+  display: block;
+  height: calc(0.06 * var(---rem));
+  margin: 0 1em 0.4em 0;
+  transition: background 0.4s;
+  width: calc(0.48 * var(---rem));
+}
+
+.module-blog .listing-blog .listing-more:hover:before,
+.module-blog .listing-blog .listing-more:focus:before {
+  background: rgb( var(---color-sub) );
+}
+
+.module-blog-listing .blog-container {
+  align-items: baseline;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "title nav"
+    "description description"
+    "list list"
+    "pagination pagination"
+}
+
+.module-blog-listing .blog-title {
+  grid-area: title;
+  align-items: end;
+  display: flex;
+  font-size: calc(0.42 * var(---rem));
+  font-weight: 300;
+  justify-content: start;
+  line-height: 1.5em;
+  margin: 0 0 var(--grid);
+  position: relative;
+  text-align: center;
+}
+
+.module-blog-listing .blog-title:before,
+.module-blog-listing .blog-title:after {
+  background: rgb( var(--color-sub) );
+  bottom: 0;
+  border-radius: 0.12em;
+  content: "";
+  display: block;
+  height: 0.12em;
+  margin: 0 0.18em 0.4em 0.6em;
+  order: 1;
+  position: static;
+  width: 1.32em;
+}
+
+.module-blog-listing .blog-title:after {
+  margin: 0 0 0.4em;
+  width: calc(0.10 * var(---rem));
+}
+
+.module-blog-listing .blog-title:before,
+.module-blog-listing .blog-title:after {
+  margin-bottom: calc(0.16 * var(---rem));
+}
+
+.module-blog-listing .blog-categorie-description {
+  grid-area: description;
+  margin: calc( var(---grid-) / 2 ) 0 var(---grid);
+  max-width: 46em;
+}
+
+.module-blog-listing .blog-title .blog-news-number {
+  margin: 0 0 calc(0.10 * var(---rem)) calc(0.32 * var(---rem));
+  order: 2;
+  white-space: nowrap;
+}
+
+.module-blog-listing .blog-news-number {
+  align-items: center;
+  color: rgb( var(---color-dark) );
+  display: flex;
+  font-size: calc(0.16 * var(---rem));
+  font-weight: 400;
+  line-height: 1.5em;
+  text-decoration: none;
+}
+
+.module-blog-listing .blog-nav {
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 0.75em 0;
+  grid-area: nav;
+  position: relative;
+}
+
+.module-blog-listing .blog-nav-heading {
+  margin: 0 0.75em 0 0;
+}
+
+.module-blog-listing .blog-nav-button {
+  align-items: center;
+  background: none;
+  border: 0.072em solid rgb( var(---color-dark) );
+  border-radius: 0.42em;
+  cursor: pointer;
+  display: flex;
+  flex-flow: row;
+  font-size: calc(0.14 * var(---rem));
+  font-weight: 700;
+  line-height: 1.14em;
+  padding: 0.42em 0.72em 0.28em;
+}
+
+.module-blog-listing .blog-nav-button:hover + ul,
+.module-blog-listing .blog-nav-button:focus + ul,
+.module-blog-listing .blog-nav-list:hover,
+.module-blog-listing .blog-nav-list:focus-within {
+  display: block;
+}
+
+.module-blog-listing .blog-nav .blog-nav-button:after {
+  content: "\e921";
+  font-size: calc(0.12 * var(---rem));
+  margin: 0 0 0 1.8em;
+  transform: rotate(90deg);
+}
+
+.module-blog-listing .blog-nav-list {
+  background: rgb( var(---color-white) );
+  bottom: 1px;
+  border: 1px solid rgb( var(---color-dark) );
+  border-radius: 0.375em;
+  display: none;
+  padding: 0.75em 0.375em 0.875em;
+  position: absolute;
+  right: 0;
+  transform: translate(0, 100%);
+  z-index: 1;
+}
+
+.module-blog-listing .blog-nav-link {
+  display: inline-block;
+  font-size: calc(0.14 * var(---rem));
+  font-weight: 700;
+  padding: 0.28em 0.42em;
+  min-width: calc( var(---grid) * 2 );
+  text-decoration: none;
+}
+
+.module-blog-listing .blog-nav-link:first-letter {
+  text-transform: uppercase;
+}
+
+.module-blog-listing .blog-list {
+  grid-area: list;
+}
+
+.module-blog-listing .blog-pagination {
+  align-items: center;
+  display: flex;
+  grid-area: pagination;
+  justify-content: end;
+  margin: calc( var(---grid) / 2 ) 0 0 0;
+}
+
+.module-blog-listing .blog-pagination .pagination-button {
+  padding: calc(0.08 * var(---rem));
+  text-decoration: none;
+  transition: color 0.4s;
+}
+
+.module-blog-listing .blog-pagination .pagination-button:hover,
+.module-blog-listing .blog-pagination .pagination-button:focus {
+  color: rgb( var(---color-main) );
+}
+
+.module-blog-listing .blog-pagination .pagination-current {
+  color: rgb( var(---color-main) );
+  cursor: default;
+  font-weight: 700;
+}
+
+.module-blog-listing .blog-pagination .pagination-button-prev,
+.module-blog-listing .blog-pagination .pagination-button-next {
+  align-items: center;
+  background: none;
+  border: none;
+  color: rgb( var(---color-main) );
+  cursor: pointer;
+  display: inline-flex;
+  font-size: calc(0.24 * var(---rem));
+  justify-content: center;
+  z-index: 1;
+}
+
+.module-blog-listing .blog-pagination .pagination-button-prev:before,
+.module-blog-listing .blog-pagination .pagination-button-next:before {
+  color: rgb( var(---color-dark) );
+  content: "\e91d";
+  display: block;
+  height: 1em;
+  order: 2;
+  width: 1em;
+}
+
+.module-blog-listing .blog-pagination .pagination-button-prev:after,
+.module-blog-listing .blog-pagination .pagination-button-next:after {
+  content: "\e91e";
+  display: block;
+  height: 1em;
+  margin: 0 0 0 -1em;
+  order: 2;
+  width: 1em;
+}
+
+.module-blog-listing .blog-pagination .pagination-button-prev:before,
+.module-blog-listing .blog-pagination .pagination-button-prev:after {
+  transform: scale(-1);
+}
+
+.module-blog-listing .blog-created {
+  display: block;
+  margin: var(---grid) 0 0;
+  text-align: right;
+}
+
+.module-blog-listing .blog-created-link {
+  text-decoration: none;
+}
+
+.module-blog-carousel .blog-container {
+  align-items: end;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  position: relative;
+}
+
+.module-blog-carousel .blog-carousel {
+  margin: 0;
+  overflow: hidden;
+}
+
+.module-blog-carousel .blog-heading {
+  order: -2;
+  padding: 0;
+}
+
+.module-blog-carousel .blog-carousel-more {
+  margin: 0 0 calc( var(---grid) * 1.15625 ) calc(0.32 * var(---rem));
+  order: -1;
+}
+
+.module-blog-carousel .blog-carousel {
+  ---module-blog-listing-carousel-columns: 4;
+  overflow: hidden;
+}
+
+.module-blog-carousel .blog-carousel .listing-blog {
+  gap: 0;
+  grid-auto-flow: column;
+  grid-auto-columns: calc( ( 100% / var( ---module-blog-listing-carousel-columns ) ) );
+  grid-template-columns: unset;
+  transition: transform 0.2s;
+  margin-left: calc( var(---grid-) * 0.2 );
+  margin-right: calc( var(---grid-) * 0.2 );
+}
+
+.module-blog-carousel .listing-blog .listing-item {
+  padding: calc( var(---grid) * 0.5 ) calc( var(---grid) * 0.75 );
+}
+
+.module-blog-carousel .blog-carousel-button {
+  align-items: center;
+  background: none;
+  border: none;
+  color: rgb( var(---color-main) );
+  cursor: pointer;
+  display: flex;
+  flex-flow: column;
+  font-size: calc(0.32 * var(---rem));
+  height: var(---grid);
+  justify-content: center;
+  line-height: 1em;
+  opacity: 0;
+  padding: 0;
+  position: absolute;
+  pointer-events: none;
+  text-align: center;
+  top: calc(3 * var(---rem));
+  transition: color 0.2s, opacity 0.2s;
+  transform: translate(0, -50%);
+  width: var(---grid);
+  z-index: 1;
+}
+
+.module-blog-carousel .blog-carousel-button.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.module-blog-carousel .blog-carousel-button:hover,
+.module-blog-carousel .blog-carousel-button-button:focus {
+  color: rgb( var(---color-sub) );
+}
+
+.module-blog-carousel .blog-carousel-button:before {
+  color: rgb( var(---color-dark) );
+  content: "\e91d";
+  display: block;
+}
+
+.module-blog-carousel .blog-carousel-button:after {
+  content: "\e91e";
+  display: block;
+  margin: -1em 0 0;
+}
+
+.module-blog-carousel .blog-carousel-next {
+  right: var(---grid-);
+}
+
+.module-blog-carousel .blog-carousel-prev {
+  left: var(---grid-);
+  transform: translate(0, -50%) scale(-1, 1);
+}
+
+.module-blog .blog-layout {
+  margin-bottom: var(---grid);
+  margin-top: var(---grid);
+}
+
+.module-blog .blog-layout:first-child {
+  margin-top: 0;
+}
+
+.module-blog .blog-layout:last-child {
+  margin-bottom: 0;
+}
+
+.module-blog .blog-layout-container {
+  display: grid;
+  gap: 0 calc(0.32 * var(---rem));
+  grid-template-columns: auto auto auto;
+}
+
+.module-blog .blog-layout-content {
+  min-width: 33.333%;
+}
+
+.module-blog .blog-layout-content h1,
+.module-blog .blog-layout-content h2,
+.module-blog .blog-layout-content h3,
+.module-blog .blog-layout-content h4,
+.module-blog .blog-layout-content h5,
+.module-blog .blog-layout-content h6 {
+  font-size: calc(0.48 * var(---rem));
+  font-weight: 400;
+  line-height: 1.5em;
+  margin-bottom: 1em;
+}
+
+.module-blog .blog-layout-content h2 {
+  font-size: calc(0.32 * var(---rem));
+}
+
+.module-blog .blog-layout-content h3 {
+  font-size: calc(0.24 * var(---rem));
+}
+
+.module-blog .blog-layout-content h4 {
+  font-size: calc(0.18 * var(---rem));
+}
+
+.module-blog .blog-layout-content h5 {
+  font-size: calc(0.16 * var(---rem));
+}
+
+.module-blog .blog-layout-content h6 {
+  font-size: calc(0.16 * var(---rem));
+}
+
+.module-blog .blog-layout-heading {
+  color: rgb( var(---color-dark) );
+  font-size: var(---grid);
+  font-weight: 700;
+  grid-column: 1 / -1;
+  margin: 0 0 0.75em;
+  padding: calc(0.32 * var(---rem)) 0 0;
+  position: relative;
+  z-index: 0;
+}
+
+.module-blog .blog-layout-heading:last-child {
+  margin: 0;
+}
+
+.module-blog .blog-layout-heading:before {
+  background: rgb( var(---color-main) );
+  border-radius: 0.16em;
+  content: "";
+  height: 0.08em;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1.16em;
+  z-index: -1;
+}
+
+.module-blog img {
+  height: auto;
+  max-width: 100%;
+}
+
+@media (max-width: 100em) { /*1600px*/
+  .module-blog .listing-blog {
+    ---module-blog-listing-carousel-columns: 3;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@container module-blog (max-width: 62em) { /*960px*/
+  .module-blog-listing .blog-container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "title"
+      "description"
+      "nav"
+      "list"
+      "pagination";
+  }
+
+  .module-blog .blog-heading {
+    display: grid;
+    font-size: calc(0.32 * var(---rem));
+    grid-template-columns: auto;
+    justify-items: center;
+  }
+
+  .module-blog .blog-heading:before,
+  .module-blog .blog-heading:after {
+    grid-row: 2;
+    grid-column: 1;
+    margin: 0.64em 0 0;
+  }
+
+  .module-blog .blog-heading:before {
+    margin: 0.64em 0.2em 0 0;
+    transform: translate(-0.04em, 0);
+  }
+
+  .module-blog .blog-heading:after {
+    margin: 0.64em 0 0 1.36em;
+    transform: translate(0.04em, 0);
+    width: 0.2em;
+  }
+
+  .module-blog-listing .blog-title:before,
+  .module-blog-listing .blog-title:after {
+    display: none;
+  }
+
+  .module-blog-listing .blog-title .blog-news-number {
+    display: none;
+  }
+
+  .module-blog-listing .blog-nav {
+    justify-self: start;
+    margin: 0 0 var(---grid);
+  }
+
+  .module-blog .listing-blog {
+    ---module-blog-listing-carousel-columns: 2;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .module-blog .blog-layout .blog-layout-container {
+    gap: 0;
+    grid-template-columns: 1fr;
+  }
+
+  .module-blog .blog-layout .blog-layout-content {
+    margin-bottom: 2em;
+  }
+
+  .module-blog-carousel:after {
+    display: block;
+    content: "";
+    flex: 1 100%;
+    height: 1px;
+  }
+
+  .module-blog-carousel .module-heading {
+    order: -2;
+    padding: 0;
+  }
+
+  .module-blog-carousel .blog-carousel-more {
+    align-items: center;
+    flex: 1 100%;
+    justify-content: center;
+    margin: var(--grid) 0 0;
+    max-width: 100%;
+    order: 3;
+  }
+
+  .module-blog-carousel .blog-carousel-button {
+    margin: var(--grid) 0 0;
+    order: 1;
+    opacity: 0.5;
+    position: static;
+    transform: unset;
+  }
+
+  .module-blog-carousel .blog-carousel-button.active {
+    opacity: 1;
+  }
+
+  .module-blog-carousel .blog-carousel-prev {
+    transform: scale(-1, 1);
+  }
+
+  .module-blog-carousel .blog-carousel-next {
+    order: 2;
+  }
+}
+
+@container module-blog (max-width: 50em) { /*800px*/
+  .module-blog .listing-blog {
+    ---module-blog-listing-carousel-columns: 1;
+    grid-template-columns: 1fr;
+  }
+
+  .module-blog-listing .blog-created {
+    text-align: left;
+  }
+}
+
+@media (max-width: 24em) {
+  .module-blog-listing .blog-nav .blog-nav-button {
+    font-size: calc(0.12 * var(---rem));
+  }
+}
